@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi repertorio | E-Sueño</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#f3f4f8;color:#20243b;font-family:Arial,sans-serif}main{max-width:1000px;margin:60px auto;padding:24px}header{margin-bottom:32px}h1{font-size:38px;margin:10px 0}header p{color:#606780}.tag{font-size:12px;font-weight:bold;letter-spacing:2px;color:#6550aa}.card{background:white;padding:26px;border-radius:16px;margin-bottom:24px;box-shadow:0 4px 20px #20243b08}h2{margin-top:0;font-size:20px}.fields{display:grid;grid-template-columns:2fr 2fr 1fr;gap:16px}label{display:block;font-size:14px;font-weight:bold}input{width:100%;margin-top:8px;padding:12px;border:1px solid #c9cddd;border-radius:7px;font:inherit}button{border:0;border-radius:7px;padding:11px 17px;background:#6550aa;color:white;cursor:pointer;font:inherit;margin:12px 6px 0 0}button.secondary{background:#eae7f4;color:#493b78}button.danger{background:#fae8ec;color:#9f2948}.scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:left}th,td{padding:14px 10px;border-bottom:1px solid #e8eaf0}th{font-size:13px;color:#606780}td button{font-size:13px;margin-top:0;padding:8px 12px}#estado{min-height:24px;color:#493b78}#estado.error{color:#ad2541}#vacio{color:#606780;padding:20px 10px}@media(max-width:650px){main{margin:20px auto;padding:16px}.fields{grid-template-columns:1fr}h1{font-size:30px}}
+  </style>
+</head>
+<body>
+<main>
+  <header><span class="tag">ESCUELA DE MÚSICA E-SUEÑO</span><h1>Mi repertorio</h1><p>Prepara las canciones de tu próxima presentación.</p></header>
+  <section class="card">
+    <h2 id="formTitulo">Agregar canción</h2>
+    <form id="formulario">
+      <div class="fields">
+        <label>Título<input id="titulo" required maxlength="200"></label>
+        <label>Artista<input id="artista" required maxlength="200"></label>
+        <label>Tono<input id="tono" required maxlength="50" placeholder="Ej.: Do mayor"></label>
+      </div>
+      <button type="submit" id="guardar">Agregar canción</button><button type="button" class="secondary" id="cancelar" hidden>Cancelar edición</button>
+    </form>
+    <p id="estado" role="status" aria-live="polite"></p>
+  </section>
+  <section class="card"><h2>Canciones registradas</h2><div class="scroll"><table><thead><tr><th>#</th><th>Canción</th><th>Artista</th><th>Tono</th><th>Acciones</th></tr></thead><tbody id="lista"></tbody></table></div><p id="vacio" hidden>Aún no hay canciones. Agrega la primera a tu repertorio.</p></section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
